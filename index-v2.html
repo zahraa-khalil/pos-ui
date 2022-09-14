@@ -1,0 +1,204 @@
+<section>
+  <div class="POS-wrapper">
+    <div class="p-grid pos-container">
+      <div class="p-col-10 p-pr-0">
+        <div class="p-grid content-body">
+          <div class="p-col-12 pos-header dis-flex">
+            <div class="p-mr-6" style="font-weight: 600">ASC Cairo</div>
+            <div
+              class="p-mr-6"
+              style="color: #0652bf; cursor: pointer; font-weight: 600"
+            >
+              Sales Screen
+            </div>
+            <div
+              class="p-mr-6"
+              style="color: #0652bf; cursor: pointer; font-weight: 600"
+            >
+              Barcode Master
+            </div>
+          </div>
+
+          <div class="p-col-12 pos-body p-pr-4">
+            <div class="inputs">
+              <div class="p-fluid p-grid">
+                <div class="p-sm-6 p-md-2 p-lg-2">
+                  <div class="p-field">
+                    <span class="p-float-label">
+                      <input
+                        class="col-fixed"
+                        style="width: 200px"
+                        id="float-input"
+                        type="text"
+                        pInputText
+                        formControlName="orderNo"
+                        class="p-inputtext-sm"
+                      />
+                      <label for="float-input">{{
+                        messageTranslationPrefix + "orderNo" | translate
+                      }}</label>
+                    </span>
+                  </div>
+                </div>
+                <div class="p-sm-6 p-md-2 p-lg-2">
+                  <span class="p-float-label">
+                    <input
+                      id="float-input"
+                      type="text"
+                      pInputText
+                      formControlName="servicingVisitNo"
+                      (blur)="getPatientByVisitNo()"
+                      class="p-inputtext-sm"
+                    />
+                    <label for="float-input">{{
+                      messageTranslationPrefix + "servicingVisitsNo" | translate
+                    }}</label>
+                  </span>
+                </div>
+                <div class="p-sm-6 p-md-2 p-lg-2">
+                  <div class="p-field">
+                    <span class="p-float-label">
+                      <input
+                        id="float-input"
+                        class="p-inputtext-sm"
+                        type="text"
+                        pInputText
+                        formControlName="servicingVisitsDoctorName"
+                      />
+                      <label for="float-input">{{
+                        messageTranslationPrefix + "servicingVisitsDoctor"
+                          | translate
+                      }}</label>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="p-sm-6 p-md-2 p-lg-2">
+                  <div class="p-field">
+                    <span class="p-float-label p-input-icon-right">
+                      <i class="pi pi-search" (click)="openSearchModal()"></i>
+                      <input
+                        id="float-input"
+                        class="p-inputtext-sm"
+                        type="text"
+                        pInputText
+                        formControlName="patientNo"
+                        (blur)="getPatientIdByPatientNo($event.target)"
+                      />
+                      <label for="float-input">{{
+                        messageTranslationPrefix + "patientNo" | translate
+                      }}</label>
+                    </span>
+                    <ng-container
+                      *ngIf="
+                        mainForm.get('patientNo')?.invalid &&
+                        (mainForm.get('patientNo')?.touched ||
+                          mainForm.get('patientNo')?.dirty)
+                      "
+                    >
+                      <app-error-message
+                        *ngIf="
+                          mainForm.get('patientNo')?.hasError('isInvalidNo')
+                        "
+                        >{{
+                          validationTranslationPrefix + "invalidPatientNo"
+                            | translate
+                        }}
+                      </app-error-message>
+                    </ng-container>
+                  </div>
+                </div>
+                <div class="p-sm-6 p-md-2 p-lg-2">
+                  <div class="p-field">
+                    <span class="p-float-label">
+                      <input
+                        id="float-input"
+                        class="p-inputtext-sm"
+                        type="text"
+                        pInputText
+                        formControlName="patientName"
+                      />
+                      <label for="float-input">{{
+                        messageTranslationPrefix + "patientName" | translate
+                      }}</label>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="p-sm-6 p-md-2 p-lg-2">
+                  <div class="p-field">
+                    <span class="p-float-label">
+                      <input
+                        id="float-input"
+                        class="p-inputtext-sm"
+                        type="text"
+                        pInputText
+                        formControlName="remarks"
+                      />
+                      <label for="float-input">{{
+                        messageTranslationPrefix + "remarks" | translate
+                      }}</label>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="btns dis-flex p-mt-4">
+              <!--    (onClick)="" -->
+              <p-button
+                label="Cansel Sale"
+                class="p-custom-POS-button-light p-mr-4"
+              ></p-button>
+              <p-button
+                label="Refund"
+                class="p-custom-POS-button-light p-mr-4"
+              ></p-button>
+              <p-button
+                label="Cashier"
+                class="p-custom-POS-button-dark p-mr-4"
+              ></p-button>
+            </div>
+            <div class="table"></div>
+          </div>
+        </div>
+      </div>
+      <div class="p-col-2 pos-sidebar p-pl-0">
+        <div class="phName">
+          <h5 class="p-m-0">Cure Pharmacy</h5>
+        </div>
+        <div class="pos-total dis-flex p-justify-around">
+          <div class="pos-t t-key">Total</div>
+          <div class="pos-t t-val">
+            <span class="t-amount">300 </span>
+            <span class="t-currency"> KWD</span>
+          </div>
+        </div>
+
+        <div class="p-mt-5">
+          <div class="p-px-4">
+            <label
+              for="remarks"
+              style="font-size: 16px; font-weight: 600; color: #181616"
+              >{{ messageTranslationPrefix + "remarks" | translate }}</label
+            >
+            <textarea
+              class="radius-8-inputs"
+              rows="2"
+              cols="10"
+              pInputTextarea
+              [autoResize]="true"
+            ></textarea>
+          </div>
+          <div class="dis-flex p-justify-center p-mt-2">
+            <p-button
+              label="Payment"
+              class="p-custom-POS-payment-button-dark"
+            ></p-button>
+          </div>
+        </div>
+      </div>
+      <div class="p-col-12 pos-footer">footer</div>
+    </div>
+  </div>
+</section>
+<div class="p-mt-6"></div>
