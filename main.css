@@ -1,0 +1,33 @@
+
+.POS-wrapper {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+.pos-container {
+  height: 163vh;
+}
+
+.pos-sidebar {
+  background-color: white;
+}
+.pos-header {
+  height: 70px;
+  background-color: white;
+  padding-left: 2rem;
+}
+.pos-body {
+  padding-left: 2rem;
+}
+
+.pos-footer {
+  height: 148px;
+  padding-left: 2rem;
+  background-color: white;
+}
+
+// /////////////////////////////////////
+.dis-flex {
+  display: flex;
+  align-items: center;
+}
