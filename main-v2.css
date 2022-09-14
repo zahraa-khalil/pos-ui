@@ -1,0 +1,116 @@
+*:not(.fa, .pi) {
+  font-family: "Open Sans", sans-serif !important;
+}
+
+.totalInfo {
+  background-color: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.POS-wrapper {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+.pos-container {
+  height: 163vh;
+}
+
+.pos-sidebar {
+  background-color: white;
+}
+.pos-header {
+  height: 70px;
+  background-color: white;
+  padding-left: 2rem;
+  padding-bottom: 0;
+}
+.pos-body {
+  padding-left: 2rem;
+  margin-top: 2rem;
+}
+
+.pos-footer {
+  height: 148px;
+  padding-left: 2rem;
+  background-color: white;
+}
+.pos-total {
+  background: #edf4fd;
+  height: 52px;
+}
+.pos-t {
+  color: #181616;
+}
+.t-key {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.t-amount {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.t-currency {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.t-val {
+  // font-size: 1.5rem;
+}
+// /////////////////////////////////////
+.dis-flex {
+  display: flex;
+  align-items: center;
+}
+
+.phName {
+  height: 61px;
+  background: #0652bf;
+  color: white;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.p-custom-POS-button-dark .p-button {
+  width: 100%;
+  background-color: #0652bf !important;
+  color: white !important;
+  border: 1px solid #0652bf;
+  box-shadow: none;
+  font-size: 20px;
+  font-weight: 600 !important;
+  transition: all 0.3s ease-in-out;
+  border-radius: 8px;
+  padding: 1rem 2rem;
+}
+
+.p-custom-POS-payment-button-dark .p-button {
+  background-color: #0652bf !important;
+  color: white !important;
+  border: 1px solid #0652bf;
+  box-shadow: none;
+  font-size: 20px;
+  font-weight: 600 !important;
+  transition: all 0.3s ease-in-out;
+  border-radius: 8px;
+  padding: 1rem 2rem;
+  width: 11vw !important;
+}
+.p-custom-POS-button-light .p-button {
+  width: 100%;
+  font-size: 20px;
+  font-weight: 600 !important;
+  border: solid 1px #d9d9d9;
+  background-color: white !important;
+  color: #0652bf !important;
+
+  box-shadow: none;
+  transition: all 0.3s ease-in-out;
+  border-radius: 8px;
+  padding: 1rem 2rem;
+}
